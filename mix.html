@@ -1,0 +1,116 @@
+<!-- accordion -->
+<div class="accordion mt-2" id="accordionPanelsStayOpenExample" style="border:none;">
+    <div class="accordion-item" style="border-bottom:1px solidred; background-color:red;">
+        <div class="accordion-header d-grid px-2 py-3" style="border-bottom:1px solidred;" id="panelsStayOpen-headingheader">
+            <button style="border:none; background-color:transparent;" href="#" class="collapsed" aria-current="true" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseheader" aria-expanded="false" aria-controls="panelsStayOpen-collapseheader">
+                <div class="d-flex justify-content-between" style="font-size:12; color:red">
+                    <div>Nama</div>
+                    <div>Kelas</div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div class="accordion-item body" style="border-bottom:1px solidred;">
+        <div class="accordion-header d-grid px-2 py-3" style="border-bottom:1px solid red" id="panelsStayOpen-heading">
+            <button style="border:none; background-color:transparent;" href="#" class="collapsed" aria-current="true" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapse">
+                <div class="d-flex justify-content-between" style="font-size:12">
+
+                    <div style="font-size:12px">Nama</div>
+                    <div style="font-size:12px">Kelas</div>
+
+
+                </div>
+            </button>
+        </div>
+    </div>
+    
+</div>
+
+<div id="panelsStayOpen-collapse" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading">
+    <div class="accordion-body" style="background-color:red; border-bottom:1px solid red">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group input-group-sm mb-1" style="font-size:12;">
+                    <span class="input-group-text" id="inputGroup-sizing-sm" style="width:100px;font-size:12;background-color:red;border-color:red">Label</span>
+                    <input style="font-size:12; border-color:red" name="" type="text" value="" class="form-control" aria-label="Sizing example input" placeholder="Label" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+        </div>
+
+        <div class="d-grid d-flex gap-2 justify-content-end mt-2">
+
+            <button type="button" data-bs-toggle="modal" data-bs-target="#konfirmasi" class="btn" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color:red; color:red">
+                <i class="fa fa-trash"></i> Delete
+            </button>
+            <button type="button" data-order="edit" data-tabel="'+res.data.utils.tabel+'" data-idmenu="'+res.data.utils.idmenu+'" data-labels="'+labels.join(" ,")+'" class="btn save" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color:red; color:red">
+                <i class="fa fa-folder-o"></i> Save
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- carausel -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active py-2" style="background-color:transparent;">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                    <h6 class="text-center">Boolean</h6>
+                </div>
+                <div class="col-3">
+                    <div style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item py-2" style="background-color:transparent;">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item py-2" style="background-color:transparent;">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="carousel-item" style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="carousel-item" style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="carousel-item" style="background-position: center; background-size: contain;width:80px; height:80px;background-image:url(https://images.freeimages.com/images/large-previews/e04/yellow-frontal-with-ivy-1228121.jpg) ;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
