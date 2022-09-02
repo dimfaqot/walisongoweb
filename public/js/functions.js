@@ -383,7 +383,7 @@ const body = (order=null, val=null) => {
                         exp=col.split("_");
                         if (exp[exp.length - 1] === 'id') {
                             // console.log(exp[0]);
-                            col=(exp[0]=='user'?'nama':exp[0]);
+                            col=(exp[0]=='user' || exp[0]=='anggotakelas'?'nama':exp[0]);
                         }
                          let text=data[i][col];
         
@@ -582,10 +582,10 @@ const body = (order=null, val=null) => {
                    html+='<div class="card p-1">';
                    let exp=data[i][utils.colshow[p]].toLowerCase().split(".");
                        if(exp[exp.length - 1] == 'jpg' || exp[exp.length - 1] == 'jpeg' || exp[exp.length - 1] == 'png'){
-                           html+='<div class="m-auto click dokumen'+replacetext(".", "",replacetext(' ', '',data[i].label))+data[i].id+'" data-query="zoom" style="cursor: pointer;width:100px; height:100px;background-position: center; background-size: contain;background-repeat: no-repeat; background-image:url(/images/'+data[i][utils.colshow[p]]+')">';
+                           html+='<div class="m-auto click dokumen'+replacetext(".", "",replacetext(' ', '',data[i].label))+data[i].id+'" data-query="zoom" style="cursor: pointer;width:100px; height:100px;background-position: center; background-size: contain;background-repeat: no-repeat; background-image:url(images/'+data[i][utils.colshow[p]]+')">';
                            html+='</div>';
                        }else{
-                        html+='<a class="text-center" href="/images/'+data[i][utils.colshow[p]]+'">Berkas '+data[i][utils.colshow[p]].slice(0,10)+'</a>';
+                        html+='<a class="text-center" href="images/'+data[i][utils.colshow[p]]+'">Berkas '+data[i][utils.colshow[p]].slice(0,10)+'</a>';
                        }
                    html+='<div class="card-body">';
                    html+='<form action="'+baseUrl+'/dashboard/dokumen" method="post" enctype="multipart/form-data">';

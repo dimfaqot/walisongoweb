@@ -15,21 +15,7 @@ class Dashboard extends BaseController
 
         $set = \App\Models\Settings::class;
         $set = new $set;
-        // $params2 = ['menu' => 'Dashboard', 'order' => 'submit', 'query' => 'opscetak', 'req' => 'prev'];
-        // dd($set->selectpreview('Dashboard', 'username,nama,ttl,kelurahan,kabupaten,gelar', 'a'));
-        // $query = folder('pvcetak');
-        // dd($query);
-        // dd($set->selectpreview('Dashboard', 'Submit', $query, 'fa'));
-        // dd(preview('Dashboard'));
-        // dd(preview('Dashboard'));
-        // dd($set->html('Santri'));
-        // $data = query(['menu' => 'Akses', 'order' => 'edit', 'req' => 'query']);
-        // $data = query(['menu' => 'Sk', 'order' => 'Submit', 'req' => 'select', 'queryconfig' => 'dbsk', 'val' => 'F', 'datamulti' => 'username,ttl,sub']);
-        // dd($data);
-        // $data = $set->selectdb('Sub', 'Submit', 'dbusernotid', 'f');
-        // dd($data);
-        // dd(dokumen('Santri'));
-        // dd($set->preview('Dashboard'));
+        // dd($set->edit('Tilawati'));
         $data = [
             'data' => [
                 'judul' => $this->judul,
@@ -220,7 +206,7 @@ class Dashboard extends BaseController
                 $exp2 = explode("|", $exp[1]);
                 if ($exp2[2] >= 10 && $order == 'plus') {
                     $mod = 10 - fmod($exp2[2], 10);
-                    $typeof = $exp2[0] . '|' . $exp2[1] . '|' . $exp2[2] + $mod;
+                    $typeof = $exp2[0] . '|' . $exp2[1] . '|' . ($exp2[2] + $mod);
                 }
                 if ($exp2[2] >= 10 && $order == 'minus') {
                     $typeof = $exp2[0] . '|' . $exp2[1] . '|' . ($exp2[2] > 10 ? $exp2[2] - 10 : $exp2[2]);
@@ -465,6 +451,9 @@ class Dashboard extends BaseController
             foreach ($cols as $c) {
                 if ($c == 'anggotakelas_id') {
                     $data[$c] = $i['id'];
+                }
+                if ($c == 'user_id') {
+                    $data[$c] = $i['user_id'];
                 } else if ($c == 'absen' || $c == 'keterangan') {
                     $data[$c] = '';
                 } else {

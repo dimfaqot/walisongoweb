@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\writer\xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Prints extends BaseController
 {
@@ -156,7 +156,7 @@ class Prints extends BaseController
         $rows = 2;
         $huruf = 'AAZ';
         foreach ($data['data'] as $i) {
-            foreach ($props as $p) {
+            foreach ($data['props'] as $p) {
                 $huruf++;
                 $sheet->setCellValue(substr($huruf, -1) . $rows, $i[$p['col']]);
             }
@@ -167,7 +167,7 @@ class Prints extends BaseController
         header('Content-Disposition: attachment;filename=' . $filename);
         header('Cache-Control: maxe-age=0');
 
-        $writer = new xlsx($spreadsheet);
+        $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
         exit;
     }
@@ -322,7 +322,7 @@ class Prints extends BaseController
         header('Content-Disposition: attachment;filename=' . $filename);
         header('Cache-Control: maxe-age=0');
 
-        $writer = new xlsx($spreadsheet);
+        $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
         exit;
     }
@@ -447,7 +447,7 @@ class Prints extends BaseController
         header('Content-Disposition: attachment;filename=' . $filename);
         header('Cache-Control: maxe-age=0');
 
-        $writer = new xlsx($spreadsheet);
+        $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
         exit;
     }

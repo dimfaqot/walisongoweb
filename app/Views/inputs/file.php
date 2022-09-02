@@ -18,10 +18,10 @@
             <div class="col-md-6" style="<?= ($data['props']['display'] ? 'display:none;' : ''); ?>">
                 <div class="card py-2">
                     <?php if (end($exp) == 'jpg' || end($exp) == 'jpeg' || end($exp) == 'png') : ?>
-                        <div class="m-auto click dokumen<?= str_replace(".", "", str_replace(" ", "", $i['label'])) . $i['id']; ?>" data-format="zoom" style="cursor: pointer;width:100px; height:100px;background-position: center; background-size: contain;background-repeat: no-repeat; background-image:url(/images/<?= folder($i['col']); ?>/<?= $i['val']; ?>)">
+                        <div class="m-auto click dokumen<?= str_replace(".", "", str_replace(" ", "", $i['label'])) . $i['id']; ?>" data-format="zoom" style="cursor: pointer;width:100px; height:100px;background-position: center; background-size: contain;background-repeat: no-repeat; background-image:url(images/<?= folder($i['col']); ?>/<?= $i['val']; ?>)">
                         </div>
                     <?php else : ?>
-                        <a class="text-center" href="/images/<?= folder($i['col']); ?>/<?= $i['val']; ?>">Berkas <?= substr($i['val'], -10); ?></a>
+                        <a class="text-center" href="images/<?= folder($i['col']); ?>/<?= $i['val']; ?>">Berkas <?= substr($i['val'], -10); ?></a>
                     <?php endif; ?>
                     <div class="card-body p-0">
                         <?= form_open_multipart(base_url('dashboard') . "/dokumen") ?>

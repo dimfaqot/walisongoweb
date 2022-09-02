@@ -136,7 +136,7 @@
 
 <body>
     <?php if (temaroutes('tema') == 'main') : ?>
-        <div class="d-flex justify-content-center" style="margin-top:200px;">
+        <div class="d-flex justify-content-center" style="margin-top:100px;">
             <img width="100px;" src="images/logo/yppblack.png" alt="">
         </div>
         <div class="container middlecenter">

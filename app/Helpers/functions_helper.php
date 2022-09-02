@@ -197,7 +197,7 @@ function props($req)
             $queryconfig = folder($req['queryconfig']);
             $bracketconfig = bracket($queryconfig);
 
-            // dd($bracketmenu);
+            // dd($bracketmenu['querymenu'][$req['queryconfig']]);
 
             $cols = '';
             $qconfig = [];
@@ -688,7 +688,7 @@ function queryproccess($req)
         }
     }
 
-    // dd($querymix);
+    // dd($req);
     // proses memecah query mix
 
     $db      = \Config\Database::connect();
@@ -711,7 +711,7 @@ function queryproccess($req)
             $expkoma = explode(",", $i['val']);
             foreach ($expkoma as $ek) {
                 $exptitikdua = explode(":", $ek);
-                $joins[] = ($exptitikdua[0] == 'user' ? 'nama' : $exptitikdua[0]);
+                $joins[] = ($exptitikdua[0] == 'user' || $exptitikdua[0] == 'anggotakelas' ? 'nama' : $exptitikdua[0]);
                 $expsamadengan = explode("=", $exptitikdua[1]);
                 if (count($expsamadengan) == 2) {
                     $db->join($exptitikdua[0], $expsamadengan[0] . '=' . $expsamadengan[1]);
@@ -759,6 +759,13 @@ function queryproccess($req)
             foreach ($expkoma as $ek) {
                 if ($ek == 'tglnow') {
                     $ek = date("d-m-Y");
+                }
+                if ($ek == 'tanow') {
+                    $th = date("Y");
+                    if (date('n') < 7) {
+                        $th = $th - 1;
+                    }
+                    $ek = $th;
                 }
                 $where[] = $ek;
             }
@@ -1057,7 +1064,7 @@ function removejoin($props)
             // dd($i);
             foreach ($exp as $k => $e) {
                 if ($k < (count($exp) - 1)) {
-                    $col[] = ($e == 'user' ? 'nama' : $e);
+                    $col[] = ($e == 'user' || $e == 'anggotakelas' ? 'nama' : $e);
                 }
             }
         }
@@ -1367,6 +1374,12 @@ function save($data, $tabel, $order, $idmenu, $id)
                 $save[$i] = ($i == 'password' ? password_hash('123456', PASSWORD_DEFAULT) : '');
             }
         }
+        if (array_search("tanggal", $cols) !== false) {
+            $save['tanggal'] = date("d-m-Y");
+        }
+        if (array_search("bulan", $cols) !== false) {
+            $save['bulan'] = date("m");
+        }
         $save['updated_at'] = date("Y-m-d H:i:s");
         $save['created_at'] = date("Y-m-d H:i:s");
         $s = $db->insert($save);
@@ -1387,6 +1400,7 @@ function save($data, $tabel, $order, $idmenu, $id)
                     $save[$i] = $q[$i];
                 }
             }
+
             $save['updated_at'] = date("Y-m-d H:i:s");
             $db->where('id', $id);
             $s = $db->update($save);

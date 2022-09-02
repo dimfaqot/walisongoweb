@@ -15,7 +15,7 @@ function prints($tabel, $props, $id)
         $exp = explode("_", $i['col']);
         $col = $i['col'];
         if (end($exp) == 'id') {
-            if ($i['col'] == 'user_id') {
+            if ($i['col'] == 'user_id' || $i['col'] == 'anggotakelas_id') {
                 $col = 'nama';
             } else {
                 $c = [];
@@ -32,13 +32,21 @@ function prints($tabel, $props, $id)
         $select[] = $i['col'];
         $prop[] = $i;
     }
+
     $select = implode(",", $select);
     $select = $select . ',' . $tabel . '.id as id';
-    // dd($join);
+
+
     $db->select($select);
     if (count($joins) > 0) {
         $db->join($joins['col'], $joins['val']);
+
+        if ($joins['col'] == 'anggotakelas') {
+            $db->join('user', 'user_id=user.id');
+        }
     }
+
+
     $data = $db->whereIn($tabel . '.id', $id)->get()->getResultArray();
     // dd($data);
     $res = [
